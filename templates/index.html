@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Video Summary Application</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="left-panel">
+        <textarea id="memoInput" placeholder="メモをここに記述"></textarea>
+        <button id="saveMemoButton">メモを保存</button>
+        <div id="summary" class="scrollable">要約が表示されます</div>
+      </div>
+      <div class="right-panel">
+        <div id="videoContainer">
+          <!-- 動画プレイヤーがここに挿入されます -->
+        </div>
+        <input
+          type="text"
+          id="videoUrlInput"
+          placeholder="YouTubeのビデオURLを入力"
+        />
+        <button id="processButton">動画を処理</button>
+      </div>
+    </div>
+    <script src="/static/script.js"></script>
+  </body>
+</html>
