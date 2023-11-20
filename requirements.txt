@@ -1,0 +1,5 @@
+Flask
+openai
+yt-dlp
+webvtt-py
+pydub

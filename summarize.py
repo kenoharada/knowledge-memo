@@ -40,13 +40,13 @@ def summarize(text):
             }
         ],
         model=MODEL_NAME,
-        )
+    )
     print(response.choices[0].message.content)
     return response.choices[0].message.content
 
 
 def translate(text):
-    system_prompt = "You are a professional translator. Please translate the given text into fluent Japanese."
+    system_prompt = "You are a professional translator. Please translate the given text into fluent Japanese. If given text is in Japanese, just return the text as it is."
     response = client.chat.completions.create(
         messages=[
             {
@@ -59,7 +59,7 @@ def translate(text):
             }
         ],
         model=MODEL_NAME,
-        )
+    )
     print(response.choices[0].message.content)
     return response.choices[0].message.content
 

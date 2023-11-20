@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <title>Video Summary Application</title>
+    <title>Video/Audio Processing Application</title>
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
@@ -10,18 +10,39 @@
       <div class="left-panel">
         <textarea id="memoInput" placeholder="メモをここに記述"></textarea>
         <button id="saveMemoButton">メモを保存</button>
-        <div id="summary" class="scrollable">要約が表示されます</div>
+        <div class="tab">
+          <button
+            class="tablinks active"
+            onclick="openContent(event, 'summary')"
+          >
+            要約
+          </button>
+          <button class="tablinks" onclick="openContent(event, 'subtitles')">
+            字幕
+          </button>
+        </div>
+        <div id="summary" class="tabcontent scrollable">要約が表示されます</div>
+        <div id="subtitles" class="tabcontent scrollable" style="display: none">
+          字幕が表示されます
+        </div>
       </div>
       <div class="right-panel">
-        <div id="videoContainer">
-          <!-- 動画プレイヤーがここに挿入されます -->
+        <div id="mediaContainer">
+          <!-- メディアプレイヤーがここに挿入されます -->
         </div>
-        <input
-          type="text"
-          id="videoUrlInput"
-          placeholder="YouTubeのビデオURLを入力"
-        />
-        <button id="processButton">動画を処理</button>
+        <div id="fileDropArea" class="drop-area">
+          ここにファイルをドラッグ＆ドロップまたはクリックしてアップロード<br />
+          <span class="file-types">対応ファイル形式: mp4, mp3, wav, webm</span>
+          <input type="file" id="fileInput" hidden />
+        </div>
+        <div class="url-input-container">
+          <input
+            type="text"
+            id="videoUrlInput"
+            placeholder="YouTubeの動画URLを入力してください 例: https://www.youtube.com/watch?v=example"
+          />
+          <button id="processButton">YouTube動画を処理</button>
+        </div>
       </div>
     </div>
     <script src="/static/script.js"></script>
